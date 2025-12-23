@@ -362,12 +362,14 @@ async def test_google_model_builtin_code_execution_stream(
                             'language': 'PYTHON',
                         },
                         tool_call_id=IsStr(),
+                        provider_name='google-gla',
                     ),
                     BuiltinToolReturnPart(
                         tool_name='code_execution',
                         content={'outcome': 'OUTCOME_OK', 'output': '-428330955.97745\n'},
                         tool_call_id=IsStr(),
                         timestamp=IsDatetime(),
+                        provider_name='google-gla',
                     ),
                     BuiltinToolCallPart(
                         tool_name='code_execution',
@@ -380,12 +382,14 @@ print(result)\
                             'language': 'PYTHON',
                         },
                         tool_call_id=IsStr(),
+                        provider_name='google-gla',
                     ),
                     BuiltinToolReturnPart(
                         tool_name='code_execution',
                         content={'outcome': 'OUTCOME_OK', 'output': '-428330955.97745\n'},
                         tool_call_id=IsStr(),
                         timestamp=IsDatetime(),
+                        provider_name='google-gla',
                     ),
                     TextPart(content='The result is -428,330,955.97745.'),
                 ],
@@ -425,6 +429,7 @@ print(result)\
                         'language': 'PYTHON',
                     },
                     tool_call_id=IsStr(),
+                    provider_name='google-gla',
                 ),
             ),
             PartEndEvent(
@@ -440,6 +445,7 @@ print(result)\
                         'language': 'PYTHON',
                     },
                     tool_call_id=IsStr(),
+                    provider_name='google-gla',
                 ),
                 next_part_kind='builtin-tool-return',
             ),
@@ -450,6 +456,7 @@ print(result)\
                     content={'outcome': 'OUTCOME_OK', 'output': '-428330955.97745\n'},
                     tool_call_id=IsStr(),
                     timestamp=IsDatetime(),
+                    provider_name='google-gla',
                 ),
                 previous_part_kind='builtin-tool-call',
             ),
@@ -466,6 +473,7 @@ print(result)\
                         'language': 'PYTHON',
                     },
                     tool_call_id=IsStr(),
+                    provider_name='google-gla',
                 ),
                 previous_part_kind='builtin-tool-return',
             ),
@@ -482,6 +490,7 @@ print(result)\
                         'language': 'PYTHON',
                     },
                     tool_call_id=IsStr(),
+                    provider_name='google-gla',
                 ),
                 next_part_kind='builtin-tool-return',
             ),
@@ -492,6 +501,7 @@ print(result)\
                     content={'outcome': 'OUTCOME_OK', 'output': '-428330955.97745\n'},
                     tool_call_id=IsStr(),
                     timestamp=IsDatetime(),
+                    provider_name='google-gla',
                 ),
                 previous_part_kind='builtin-tool-call',
             ),
@@ -512,6 +522,7 @@ print(result)\
                         'language': 'PYTHON',
                     },
                     tool_call_id=IsStr(),
+                    provider_name='google-gla',
                 )
             ),
             BuiltinToolResultEvent(  # pyright: ignore[reportDeprecated]
@@ -520,6 +531,7 @@ print(result)\
                     content={'outcome': 'OUTCOME_OK', 'output': '-428330955.97745\n'},
                     tool_call_id=IsStr(),
                     timestamp=IsDatetime(),
+                    provider_name='google-gla',
                 )
             ),
             BuiltinToolCallEvent(  # pyright: ignore[reportDeprecated]
@@ -534,6 +546,7 @@ print(result)\
                         'language': 'PYTHON',
                     },
                     tool_call_id=IsStr(),
+                    provider_name='google-gla',
                 )
             ),
             BuiltinToolResultEvent(  # pyright: ignore[reportDeprecated]
@@ -542,6 +555,7 @@ print(result)\
                     content={'outcome': 'OUTCOME_OK', 'output': '-428330955.97745\n'},
                     tool_call_id=IsStr(),
                     timestamp=IsDatetime(),
+                    provider_name='google-gla',
                 )
             ),
         ]
@@ -4540,7 +4554,10 @@ async def test_google_model_file_search_tool_stream(allow_model_requests: None, 
                 ModelResponse(
                     parts=[
                         BuiltinToolCallPart(
-                            tool_name='file_search', args={'query': 'Capital of France'}, tool_call_id=IsStr()
+                            tool_name='file_search',
+                            args={'query': 'Capital of France'},
+                            tool_call_id=IsStr(),
+                            provider_name='google-gla',
                         ),
                         TextPart(
                             content='The capital of France is Paris. The city is well-known for its famous landmarks, including the Eiffel Tower.'
@@ -4584,13 +4601,19 @@ async def test_google_model_file_search_tool_stream(allow_model_requests: None, 
                 PartStartEvent(
                     index=0,
                     part=BuiltinToolCallPart(
-                        tool_name='file_search', args={'query': 'Capital of France'}, tool_call_id=IsStr()
+                        tool_name='file_search',
+                        args={'query': 'Capital of France'},
+                        tool_call_id=IsStr(),
+                        provider_name='google-gla',
                     ),
                 ),
                 PartEndEvent(
                     index=0,
                     part=BuiltinToolCallPart(
-                        tool_name='file_search', args={'query': 'Capital of France'}, tool_call_id=IsStr()
+                        tool_name='file_search',
+                        args={'query': 'Capital of France'},
+                        tool_call_id=IsStr(),
+                        provider_name='google-gla',
                     ),
                     next_part_kind='text',
                 ),
@@ -4630,7 +4653,10 @@ async def test_google_model_file_search_tool_stream(allow_model_requests: None, 
                 ),
                 BuiltinToolCallEvent(  # pyright: ignore[reportDeprecated]
                     part=BuiltinToolCallPart(
-                        tool_name='file_search', args={'query': 'Capital of France'}, tool_call_id=IsStr()
+                        tool_name='file_search',
+                        args={'query': 'Capital of France'},
+                        tool_call_id=IsStr(),
+                        provider_name='google-gla',
                     )
                 ),
                 BuiltinToolResultEvent(  # pyright: ignore[reportDeprecated]
