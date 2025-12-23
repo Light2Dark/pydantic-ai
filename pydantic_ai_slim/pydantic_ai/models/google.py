@@ -870,12 +870,12 @@ class GeminiStreamedResponse(StreamedResponse):
                     )
                 elif part.executable_code is not None:
                     part_obj = self._handle_executable_code_streaming(part.executable_code)
-                    part_obj.provider_name = self.provider_name
+                    part_obj.provider_name = self.provider_name if provider_details else None
                     part_obj.provider_details = provider_details
                     yield self._parts_manager.handle_part(vendor_part_id=uuid4(), part=part_obj)
                 elif part.code_execution_result is not None:
                     part = self._map_code_execution_result(part.code_execution_result)
-                    part.provider_name = self.provider_name
+                    part.provider_name = self.provider_name if provider_details else None
                     part.provider_details = provider_details
                     yield self._parts_manager.handle_part(vendor_part_id=uuid4(), part=part)
                 else:
